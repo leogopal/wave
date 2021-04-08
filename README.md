@@ -81,6 +81,29 @@ php artisan db:seed
 
 🎉 And that's it! You will now be able to visit your URL and see your Wave application up and running.
 
+#### ☁ DigitalOcean Spaces
+
+You can utilize the DigitalOcean Spaces to store your static file uploads like profile pictures and etc.
+
+In order to use Spaces make sure to add the following ENV variables:
+
+```
+DO_SPACES_KEY=YOUR_DO_SPACES_KEY
+DO_SPACES_SECRET=YOUR_DO_SPACES_SECRET
+DO_SPACES_ENDPOINT=YOUR_DO_SPACES_ENDPOINT
+DO_SPACES_REGION=YOUR_DO_SPACES_REGION
+DO_SPACES_BUCKET=YOUR_DO_SPACES_BUCKET
+```
+
+After that change the storage type in `config/voyager.php` from `public` to `spaces`
+
+```
+    'storage' => [
+        'disk' => 'spaces',
+    ],
+```
+
+That way if you deploy to the DigitalOcean App platform, your uplodas will be stored to a persistant volume so you won't loose then during the next deploy.
 
 ## Watch, Learn, and Build
 
